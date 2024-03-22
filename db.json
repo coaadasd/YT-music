@@ -1,0 +1,86 @@
+{
+  "playlists": [
+    {
+      "id": "cd45",
+      "title": "ㅁㄴㅇㅇㅇㅇㅇ",
+      "songs": [
+        {
+          "id": "fD7LIqkKisc",
+          "title": "Meghan Trainor - Title (Official Music Video)",
+          "channelName": "MeghanTrainorVEVO",
+          "viewCount": "91232458",
+          "duration": "02:56",
+          "thumbnailUrl": "https://i.ytimg.com/vi/fD7LIqkKisc/hqdefault.jpg"
+        },
+        {
+          "id": "G_ZmKXCdc4k",
+          "title": "Meghan Trainor - Title (Lyrics)",
+          "channelName": "The Vibe Guide",
+          "viewCount": "13052543",
+          "duration": "02:55",
+          "thumbnailUrl": "https://i.ytimg.com/vi/G_ZmKXCdc4k/hqdefault.jpg"
+        },
+        {
+          "id": "nKWK4GJBOzY",
+          "title": "🎶 머리에 맴도는 노래 Meghan Trainor - Title [가사/해석/lyrics]",
+          "channelName": "유비스",
+          "viewCount": "103364",
+          "duration": "02:55",
+          "thumbnailUrl": "https://i.ytimg.com/vi/nKWK4GJBOzY/hqdefault.jpg"
+        },
+        {
+          "id": "FPaqk0CR0-Q",
+          "title": "title | speed up",
+          "channelName": "𝙙𝙖𝙣𝙜𝙣𝙞𝙚",
+          "viewCount": "411828",
+          "duration": "02:27",
+          "thumbnailUrl": "https://i.ytimg.com/vi/FPaqk0CR0-Q/hqdefault.jpg"
+        }
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": 1,
+      "title": "더 이상 국제전의 젠지를 믿지 않으리",
+      "artist": "얼밤붐밤",
+      "views": 1234,
+      "duration": "3:30:10"
+    },
+    {
+      "id": 2,
+      "title": "싱글벙글 맞짱깔 새끼야",
+      "artist": "더샤이",
+      "views": 12345,
+      "duration": "10:30"
+    },
+    {
+      "id": 3,
+      "title": "페이커의 세계선을 바꾼 토스",
+      "artist": "T1",
+      "views": 1234678,
+      "duration": "13:30"
+    },
+    {
+      "id": 4,
+      "title": "캐트럴의 스토브리그 리뷰",
+      "artist": "캐드럴",
+      "views": 123467890,
+      "duration": "13:40"
+    },
+    {
+      "id": 5,
+      "title": "클템의 찍어 젠지 vs BLG",
+      "artist": "쓰레기",
+      "views": 123467890,
+      "duration": "13:40"
+    },
+    {
+      "id": 6,
+      "title": "울하 울챔스 ALL 리뷰",
+      "artist": "울프",
+      "views": 123467890,
+      "duration": "13:40"
+    }
+  ]
+}

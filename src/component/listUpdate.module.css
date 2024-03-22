@@ -1,0 +1,122 @@
+.title{
+  color: white;
+}
+
+body{
+  background-color: black
+}
+
+.AllContainer{
+  width: 80%;
+  height: 100%;
+}
+
+.container{
+  display: flex;
+  flex-grow: 1;
+}
+
+.imgContainer{
+  width: 40vh;
+  height: 37vh;
+  border: solid white 1px;
+  color: white;
+  margin: 5%;
+  background-color: white;
+}
+
+.textContainer{
+  width: 70%;
+  height: 35%;
+  margin-top: 5%;
+}
+
+.subTitle{
+  color: white;
+}
+
+
+
+.button{
+  margin-top: 3%;
+  width: 6%;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.container2{
+  width: 100%;
+  height: 100%;
+}
+
+.list{
+  display: flex;
+  border-bottom: solid rgb(52, 52, 52) 1px;
+  height: 7vh;
+  align-items: center;
+}
+
+.Stitle{
+  color: white;
+  width: 30%;
+  margin-left: 15%;  
+}
+
+.Sartist{
+  color: white;
+  width: 20%;
+}
+
+.Sviews{
+  color: white;
+  width: 20%;
+}
+
+.Sduration{
+  color: white;
+  width: 20%;
+}
+
+.SButton{
+
+}
+
+.icon{
+  color: white;
+  font-size: 150%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list:hover {
+  cursor: pointer;
+  background-color: #484848;
+}
+
+.iconContainer{
+  position: fixed;
+  margin-left: 5%;
+  width: 2%;
+  height: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  display: none;
+}
+
+
