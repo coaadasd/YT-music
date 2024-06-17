@@ -10,6 +10,7 @@ import { FaPlay } from "react-icons/fa6";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import {getCookie, removeCookie, setCookie} from '../utils/cookie'
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 const IndexComponent = ({ children }) => {
   const [keyword, setKeyword] = useState('');
@@ -95,15 +96,30 @@ const IndexComponent = ({ children }) => {
     setSelectedSong(song);
   };
 
-  const handlePlaylistClick = (playlistId, playlistName) => {
+  const handlePlaylistClick = async (playlistId, playlistName) => {
     const token = getCookie("name");
     const musicId = selectedSong.id;
-
-    axios.post(`https://ytmusic.minisang.xyz/api/playlist/${playlistId}/add/${musicId}`, null,{
-      headers: {
+  
+    try {
+      const response = await axios.post(`https://ytmusic.minisang.xyz/api/playlist/${playlistId}/add/${musicId}`, null, {
+        headers: {
           'Authorization': `Bearer ${token}`
         }
-    })
+      });
+  
+      if (response.status === 200) {
+        setShowPlaylist(false);
+        setSelectedSong(null);
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 409) {
+        alert("이미 추가되어있습니다.");
+        setShowPlaylist(false);
+        setSelectedSong(null);
+      } else {
+        console.error("Error adding song to playlist", error);
+      }
+    }
   };
 
 
@@ -196,8 +212,11 @@ const IndexComponent = ({ children }) => {
               </button>
             </div>
           {showPlaylist && (
-            <div className={styles.PlayList}>
-              재생목록
+            <>
+            <div className={styles.overlay}></div>
+            <div className={styles.addContainer}>
+            <div className={styles.addTitle}>재생목록</div>
+              <div className={styles.PlayList}>
               {playlists.map(playlist => (
                 <div 
                   className={styles.mapContainer} 
@@ -208,11 +227,13 @@ const IndexComponent = ({ children }) => {
                 >
                   <div className={styles.list}>
                     {playlist.name.length > 7 ? playlist.name.substring(0, 7) + '...' : playlist.name}
-                    {isHovered === playlist.id && <div className={styles.icons}><FaCirclePlay /></div>}
+                    {isHovered === playlist.id && <div className={styles.icons}><IoIosAddCircleOutline /></div>}
                   </div>
                 </div>
               ))}
             </div>
+            </div>
+          </>
           )}
         </div>
       )}

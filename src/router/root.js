@@ -17,7 +17,7 @@ const root = createBrowserRouter([
       element: <Suspense fallback={Loading}><Update /></Suspense>,
     },
     {
-      path: "playlist/:id",
+      path: "playlist/:id/:name",
       element: <Suspense fallback={Loading}><List /></Suspense>,
     }
 ])

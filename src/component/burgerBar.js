@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from "../component/burgerBar.module.css";
 import { FaPlus } from "react-icons/fa";
 import axios from 'axios';
 import { FaCirclePlay } from "react-icons/fa6";
-import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
-import {getCookie, removeCookie, setCookie} from '../utils/cookie'
+import { getCookie, removeCookie, setCookie } from '../utils/cookie';
+
 const Burger = ({ children }) => {
   const [isDivVisible, setDivVisible] = useState(false);
   const [playlists, setPlaylists] = useState([]);
   const [isHovered, setIsHovered] = useState(null);
-  const [signUp, setSingUp] = useState(false);
+  const [signUp, setSignUp] = useState(false);
   const navigate = useNavigate();
   const [signin, setSignin] = useState(false);
   const [register, setRegister] = useState(false);
@@ -32,19 +32,19 @@ const Burger = ({ children }) => {
     })
     .then(response => {
       if (response.status === 200) {
-        
+        // 이메일 인증이 완료된 경우
       } else {
         console.error("Unexpected response status: ", response.status);
         removeCookie("name");
-        alert("메일 인증을 진행하고 다시 로그인해주세요.")
+        alert("메일 인증을 진행하고 다시 로그인해주세요.");
       }
     })
     .catch(error => {
       console.error("Error occurred:", error);
       removeCookie("name");
-      if(token){
-        alert("메일 인증을 진행하고 다시 로그인해주세요.")
-        window.location.reload()
+      if (token) {
+        alert("메일 인증을 진행하고 다시 로그인해주세요.");
+        window.location.reload();
       }
     });
   }, []);
@@ -62,7 +62,7 @@ const Burger = ({ children }) => {
         .catch(error => console.error(error));
       
       setLoggedIn(true);
-    } 
+    }
   }, []);
 
   const handleAddClick = () => {
@@ -90,7 +90,7 @@ const Burger = ({ children }) => {
     .then(res => {
       console.log(res);
       console.log(res.data);
-  
+      setPlaylists(prevPlaylists => [...prevPlaylists, newPlaylist]);
     })
     .catch(error => {
       console.error('오류 발생:', error);
@@ -100,24 +100,24 @@ const Burger = ({ children }) => {
   };
 
   const SignUpClick = () => {
-    setSingUp(prevState => !prevState);
+    setSignUp(prevState => !prevState);
   }
 
   const SignIn = () => {
     setSignin(true);
-    setSingUp(false);
+    setSignUp(false);
   }
 
   const Register = () => {
     setSignin(false);
     setRegister(true);
   }
-
+  
   const Login = () => {
     setRegister(false);
     setSignin(true);
   }
-
+  
   const handleLogin = () => {
     const LoginUser = {
       id: userId,
@@ -161,13 +161,13 @@ const Burger = ({ children }) => {
     navigate("/");
   };
 
-  const handlePlaylistClick = (id) => {
-    navigate(`/playlist/${id}`);
+  const handlePlaylistClick = (id, name) => {
+    navigate(`/playlist/${id}/${name}`);
   }
 
   const handleTitleClick = () => {
     navigate('/');
-
+    window.location.reload();
   }
 
   const handleLogout = () => {
@@ -179,23 +179,26 @@ const Burger = ({ children }) => {
   return (
     <div className={styles.flexContainer}>
       <div className={styles.burgerContainer}>
-        <div>
+
           <div className={styles.text1} onClick={handleTitleClick}>성훈뮤직</div>
           <div className={styles.add} onClick={handleAddClick}><FaPlus /> &nbsp; 새 재생목록</div>
-          {playlists.map(playlist => (
-            <div
-              className={styles.mapContainer}
-              onMouseEnter={() => setIsHovered(playlist.id)}
-              onMouseLeave={() => setIsHovered(null)}
-              onClick={() => handlePlaylistClick(playlist.id)}
-            >
-              <div key={playlist.id} className={styles.list}>
-                {playlist.name.length > 7 ? playlist.name.substring(0, 7) + '...' : playlist.name}
-                {isHovered === playlist.id && <div className={styles.icon}><FaCirclePlay /></div>}
+          <div className={styles.map}>
+            {playlists.map(playlist => (
+              <div
+                key={playlist.id}
+                className={styles.mapContainer}
+                onMouseEnter={() => setIsHovered(playlist.id)}
+                onMouseLeave={() => setIsHovered(null)}
+                onClick={() => handlePlaylistClick(playlist.id, playlist.name)}
+              >
+                <div className={styles.list}>
+                  {playlist.name.length > 7 ? playlist.name.substring(0, 7) + '...' : playlist.name}
+                  {isHovered === playlist.id && <div className={styles.icon}><FaCirclePlay /></div>}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+          
         {isDivVisible && (
           <>
             <div className={styles.overlay}></div>
@@ -207,9 +210,6 @@ const Burger = ({ children }) => {
             </div>
           </>
         )}
-      </div>
-      <div className={styles.burgerContainer1}>
-
       </div>
 
       {children}
@@ -235,7 +235,7 @@ const Burger = ({ children }) => {
             <div className={styles.userName}>
               <br></br>
               password<br></br>
-              <input type='text' className={styles.userText} value={userPassword} onChange={(e) => { setUserPassword(e.target.value) }}></input>
+              <input type='password' className={styles.userText} value={userPassword} onChange={(e) => { setUserPassword(e.target.value) }}></input>
             </div>
             <br>
             </br>
@@ -278,7 +278,7 @@ const Burger = ({ children }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default Burger;

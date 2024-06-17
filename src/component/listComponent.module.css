@@ -7,27 +7,27 @@ body{
 }
 
 .AllContainer{
-  width: 80%;
+  width: 80rem;
   height: 100%;
 }
 
 .container{
   display: flex;
-  flex-grow: 1;
 }
 
 .imgContainer{
-  width: 40vh;
-  height: 37vh;
+  width: 20rem;
+  height: 20rem;
   border: solid white 1px;
   color: white;
-  margin: 5%;
+  margin: 5rem;
+  margin-left: 25rem;
   background-color: white;
 }
 
 .textContainer{
-  width: 70%;
-  height: 35%;
+  width: 20rem;
+  height: 15rem;
   margin-top: 5%;
 }
 
@@ -36,12 +36,13 @@ body{
 }
 
 .button{
-  margin-top: 3%;
-  width: 6%;
+  margin-top: 1rem;
+  width: 3rem;
   border-radius: 10px;
   background-color: white;
   color: black;
   border: none;
+  cursor: pointer;
 }
 
 .container2{
@@ -52,7 +53,9 @@ body{
 .list{
   display: flex;
   border-bottom: solid rgb(52, 52, 52) 1px;
-  height: 7vh;
+  width: 83vw;
+  height: 3.5rem;
+  margin-left: 17vw;
   align-items: center;
 }
 
@@ -179,7 +182,64 @@ body{
 }
 
 .delete{
-  width: 5%;
+  width: 4rem;
+  margin-right: 1rem;
   background: none;
   color: white;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.addContainer{
+  padding: 1%;
+  font-size: 20px;
+  font-weight: bold;
+  border: solid gray 1px;
+  border-radius: 5px;
+  color: white;
+  position: fixed;
+  background-color: rgb(39, 38, 38);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 20%;
+  z-index: 1000;
+}
+
+.input{
+  width: 100%;
+  height: 25%;
+  padding: 12px 16px;
+  border: none;
+  border-bottom: 1px solid #dcdcdc;
+  border-radius: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+  outline: none;
+  background: transparent;
+  margin-top: 3%;
+  color: white;
+}
+
+.input:focus{
+  border-color: #1a73e8;
+}
+
+.addButton{
+  border-radius: 20px;
+  width: 12%;
+  height: 25%;
+  margin-top: 3%;
+  float: right;
+  font-size: 70%;
 }

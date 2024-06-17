@@ -7,6 +7,7 @@
 
   const ListUpdate = () => {
     const { id } = useParams();
+    const { name } = useParams();
     const [title, setTitle] = useState('');
     const [playlists, setPlaylists] = useState([]);
     const [isHovered, setIsHovered] = useState(null);
@@ -17,6 +18,7 @@
     const audioRef = useRef(null);
 
     useEffect(() => {
+      alert(name)
       axios.get(`http://localhost:8000/playlists`)
         .then(res => setPlaylists(res.data))
         .catch(error => console.error(error));
@@ -66,7 +68,7 @@
         <div className={styles.container}>
           <div className={styles.imgContainer}>대충 사진</div>
           <div className={styles.textContainer}>
-            <h1 className={styles.title}>{title}</h1>
+            <h1 className={styles.title}>{name}</h1>
             <div className={styles.subTitle}>공개 <span dir="auto" className="style-scope yt-formatted-string"> • Premium</span></div>
             <div className={styles.subTitle}>성훈뮤직 <span dir="auto" className="style-scope yt-formatted-string"></span></div>
             <button className={styles.button}>수정</button>

@@ -1,15 +1,30 @@
 .burgerContainer{
-  width: 18%;
-  height: 100vh;
+  width: 20rem;
+  height: 99vh;
   border-right: solid gray;
   border-width: 0.5px;  
   background-color: black;
   position: fixed;
   z-index: 10;
+  overflow: auto;
+}
+
+.map{
+  height: auto;
+  max-height: 70%;
+  width: 15rem; 
+  overflow: auto;
+  margin: 0 auto;
+  background-color: rgb(23, 23, 23)  ;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .burgerContainer1{
-  width: 18%;
+  width: 20rem;
   height: 99vh;
   border-width: 0.5px;  
   background-color: black;
@@ -107,7 +122,7 @@
 
 .list{
   color: white;
-  width: 70%;
+  width: 80%;
   height: 3vh;
   margin-top: 5%;
   padding: 5%;
@@ -234,6 +249,7 @@
   color: #1a73e8;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .Register {
@@ -294,4 +310,5 @@
   color: #1a73e8;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }

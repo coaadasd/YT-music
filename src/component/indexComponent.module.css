@@ -11,15 +11,16 @@ body{
 .indexContainer {
   flex-grow: 1;
   position: relative;
+  margin-left: 20rem;
   z-index: 0;
 }
 
 .searchContainer{
   padding-left: 17px;
-  width: 35%;
-  height: 7vh;
-  margin-left: 7%;
-  margin-top: 1%;
+  width: 30rem;
+  height: 3.5rem;
+  margin-left: 6.3rem;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   border: solid white 1px;
@@ -59,14 +60,16 @@ body{
 
 .listLi{
   display: flex;
-  margin: 5%;
+  margin: 4rem 0 4rem 0;
+  margin-left: 5em;
   width: 75%;
   border-bottom: solid gray 1px;
+  align-items: center;
 }
 
 .img{
-  width: 10%;
-  height: 8vh;
+  width: 7rem;
+  height: 4rem;
   margin-right: 1%;
   background-size: cover;
   background-position: center;
@@ -87,6 +90,11 @@ body{
   right: 19%;
   margin-top: 1%;
   font-size: 20px;
+  cursor: pointer;
+}
+
+.jIcon:hover{
+  background-color: #393939;
 }
 
 .iconContainer {
@@ -109,7 +117,7 @@ body{
 
 .songDetails{
   position: fixed;
-  right: 30px;
+  z-index: 1000;
 }
 
 .songInfo{
@@ -117,11 +125,12 @@ body{
 }
 .PlayList{
   color: white;
-  position: absolute;
-  width: 50%;
-  height: 200%;
+  height: 80%;
   right: 100%;
   z-index: 100;
+  left: 0%;
+  width: 100%;
+  overflow: auto;
 }
 
 .icons{
@@ -133,8 +142,8 @@ body{
 
 .list{
   color: white;
-  width: 100%;
-  height: 3vh;
+  width: 25rem;
+  height: 2vh;
   margin-top: 5%;
   padding: 5%;
   margin: 0 auto;
@@ -153,15 +162,15 @@ body{
 }
 
 .firstSearch{
-  margin-left: 5%;
+  margin-left: 5rem;
   font-size: 140%;  
   font-weight: bold;
 }
 
 .firstContainer{
-  width: 70%;
-  height: 20vh;
-  margin-left: 5%;
+  width: 68rem;
+  height: 11rem;
+  margin-left: 5rem;
   margin-top: 2%;
   display: flex;
   align-items: center;
@@ -223,7 +232,7 @@ body{
 .songs{
   font-size: 150%;
   font-weight: bold;
-  margin-left: 5%;
+  margin-left: 5rem;
   margin-top: 2%;
 }
 
@@ -231,4 +240,46 @@ body{
   position: fixed;
   bottom: 0;
   z-index: 1000;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.addContainer{
+  padding: 2%;
+  font-size: 20px;
+  font-weight: bold;
+  border: solid gray 1px;
+  border-radius: 5px;
+  color: white;
+  position: fixed;
+  background-color: rgb(39, 38, 38);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30rem;
+  height: 60%;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+
+
+.addTitle{
+  width: 99%;
+  height: 10%;
+  font-size: 110%;
+  margin-top: 1%;
+  margin-left: 1%;
+  margin-bottom: 5%;
+  border-bottom: solid 1px white;
+}
+
+.mapContainer{
+  width: 30rem;
 }
